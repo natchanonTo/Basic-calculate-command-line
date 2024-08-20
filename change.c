@@ -40,13 +40,15 @@ void calculate(double num1 ,double num2 ,char operator){
 		if (num2 != 0){
 			result = num1/num2;
 		} else{
-			printf("Error");
+			printf("Error: Division by zero is not allowed.\n");
+			return;
 		}
 		break;
 	
 	default:
-		printf("Invalid operator");
+		printf("Invalid operator\n");
 		break;
+		return;
 	}
 
 	printf("The result = %.2f",result);
