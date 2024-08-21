@@ -53,7 +53,7 @@ int main (){
 
 		printf("The result = %.2f\n",result);
 
-		printf("Do you want to perform another calculation? (y/n): ");
+		printf("Do you want to perform another calculation? (y/n): \n");
         scanf(" %c", &choice);
 	
 	} while(choice=='y' || choice=='Y');
