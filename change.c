@@ -1,28 +1,6 @@
 #include <stdio.h>
 
-void calculate(double num1 ,double num2 ,char operator);
-
-int main (){
-	double num1, num2;
-	char operator;
-	
-	printf("Input your number 1\n");
-	scanf("%lf",&num1);
-	
-	getchar();
-
-	printf("Input your operator (+,-.*,/)\n");
-	scanf("%c",&operator);
-	
-	printf("Input your number 2\n");
-	scanf("%lf",&num2);
-	
-	calculate(num1, num2, operator);
-
-	return 0;
-};
-
-void calculate(double num1 ,double num2 ,char operator){
+double calculate(double num1 ,double num2 ,char operator){
 	double result;
 
 	switch (operator)
@@ -41,15 +19,44 @@ void calculate(double num1 ,double num2 ,char operator){
 			result = num1/num2;
 		} else{
 			printf("Error: Division by zero is not allowed.\n");
-			return;
+			return 0;
 		}
 		break;
 	
 	default:
 		printf("Invalid operator\n");
-		break;
-		return;
+		return 0;
 	}
+	
+	return result;
+};
 
-	printf("The result = %.2f",result);
+int main (){
+
+	double num1, num2, result;
+	char operator,choice;
+	
+	do{
+
+		printf("Input your number 1\n");
+		scanf("%lf",&num1);
+	
+		getchar();
+
+		printf("Input your operator (+,-.*,/)\n");
+		scanf("%c",&operator);
+	
+		printf("Input your number 2\n");
+		scanf("%lf",&num2);
+
+		result = calculate(num1, num2, operator);
+
+		printf("The result = %.2f\n",result);
+
+		printf("Do you want to perform another calculation? (y/n): ");
+        scanf(" %c", &choice);
+	
+	} while(choice=='y' || choice=='Y');
+
+	return 0;
 };
